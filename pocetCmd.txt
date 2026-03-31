@@ -1,0 +1,9 @@
+python -c "
+import csv
+rows = list(csv.DictReader(open('data/reviews_clean.csv', encoding='utf-8')))
+pos = sum(1 for r in rows if r['sentiment'] == 'positive')
+neg = sum(1 for r in rows if r['sentiment'] == 'negative')
+print(f'Celkem: {len(rows)}')
+print(f'Positive: {pos}')
+print(f'Negative: {neg}')
+"
